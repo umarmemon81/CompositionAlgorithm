@@ -1,6 +1,0 @@
-open git bash
-cd Deskptop
-cd experiment
-git add .
-git commit -m "hello_message"
-git push

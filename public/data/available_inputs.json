@@ -1,0 +1,74 @@
+{
+    "current_tank_level_Tank_C": [
+        {
+            "name": "Accuracy",
+            "requirement": {"value": 94, "unit": "%"},
+            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}
+        },
+        {
+            "name": "Latency",
+            "requirement": {"value": 100, "unit": "milliseconds"},
+            "criterion": {"operator": "LessThanOrEqual", "threshold": 100}
+        }
+    ],
+    "pipe_diameter_pipe_a": [
+        {
+            "name": "Accuracy",
+            "requirement": {"value": 96, "unit": "%"},
+            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
+        },
+        {
+            "name": "Latency",
+            "requirement": {"value": 50, "unit": "milliseconds"},
+            "criterion": {"operator": "LessThanOrEqual", "threshold": 50}
+        }
+    ],
+    "tank_dimension_Tank_C": [
+        {
+            "name": "Accuracy",
+            "requirement": {"value": 98, "unit": "%"},
+            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 98}
+        },
+        {
+            "name": "Latency",
+            "requirement": {"value": 80, "unit": "milliseconds"},
+            "criterion": {"operator": "LessThanOrEqual", "threshold": 80}
+        }
+    ],
+    "pipe_diameter_b": [
+        {
+            "name": "Accuracy",
+            "requirement": {"value": 95, "unit": "%"},
+            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}
+        },
+        {
+            "name": "Latency",
+            "requirement": {"value": 60, "unit": "milliseconds"},
+            "criterion": {"operator": "LessThanOrEqual", "threshold": 60}
+        }
+    ],
+    "valve_position_pipe_a": [
+        {
+            "name": "Accuracy",
+            "requirement": {"value": 96, "unit": "%"},
+            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
+        },
+        {
+            "name": "Latency",
+            "requirement": {"value": 50, "unit": "milliseconds"},
+            "criterion": {"operator": "LessThanOrEqual", "threshold": 50}
+        }
+    ],
+    "valve_position_pipe_b": [
+        {
+            "name": "Accuracy",
+            "requirement": {"value": 96, "unit": "%"},
+            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
+        },
+        {
+            "name": "Latency",
+            "requirement": {"value": 60, "unit": "milliseconds"},
+            "criterion": {"operator": "LessThanOrEqual", "threshold": 60}
+        }
+    ]
+}

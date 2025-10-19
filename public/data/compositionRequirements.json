@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Accuracy",
+        "requirement": {"value": 85, "unit": "%"},
+        "criterion": {"operator": "GreaterThanOrEqual", "threshold": 85}
+    },
+    {
+        "name": "Latency",
+        "requirement": {"value": 600, "unit": "milliseconds"},
+        "criterion": {"operator": "LessThanOrEqual", "threshold": 600}
+    },
+    {
+        "output": {"name": "Predicted_time_to_fill_Tank_C"}
+    }
+]

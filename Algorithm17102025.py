@@ -1,278 +1,278 @@
-# Your original dataset + some new models to create multiple valid compositions
-available_inputs = {
-    "current_tank_level_Tank_C": [
-        {
-            "name": "Accuracy",
-            "requirement": {"value": 94, "unit": "%"},
-            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}
-        },
-        {
-            "name": "Latency",
-            "requirement": {"value": 100, "unit": "milliseconds"},
-            "criterion": {"operator": "LessThanOrEqual", "threshold": 100}
-        }
-    ],
-    "pipe_diameter_pipe_a": [
-        {
-            "name": "Accuracy",
-            "requirement": {"value": 96, "unit": "%"},
-            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
-        },
-        {
-            "name": "Latency",
-            "requirement": {"value": 50, "unit": "milliseconds"},
-            "criterion": {"operator": "LessThanOrEqual", "threshold": 50}
-        }
-    ],
-    "tank_dimension_Tank_C": [
-        {
-            "name": "Accuracy",
-            "requirement": {"value": 98, "unit": "%"},
-            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 98}
-        },
-        {
-            "name": "Latency",
-            "requirement": {"value": 80, "unit": "milliseconds"},
-            "criterion": {"operator": "LessThanOrEqual", "threshold": 80}
-        }
-    ],
-    "pipe_diameter_b": [
-        {
-            "name": "Accuracy",
-            "requirement": {"value": 95, "unit": "%"},
-            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}
-        },
-        {
-            "name": "Latency",
-            "requirement": {"value": 60, "unit": "milliseconds"},
-            "criterion": {"operator": "LessThanOrEqual", "threshold": 60}
-        }
-    ],
-    "valve_position_pipe_a": [
-        {
-            "name": "Accuracy",
-            "requirement": {"value": 96, "unit": "%"},
-            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
-        },
-        {
-            "name": "Latency",
-            "requirement": {"value": 50, "unit": "milliseconds"},
-            "criterion": {"operator": "LessThanOrEqual", "threshold": 50}
-        }
-    ],
-    "valve_position_pipe_b": [
-        {
-            "name": "Accuracy",
-            "requirement": {"value": 96, "unit": "%"},
-            "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
-        },
-        {
-            "name": "Latency",
-            "requirement": {"value": 60, "unit": "milliseconds"},
-            "criterion": {"operator": "LessThanOrEqual", "threshold": 60}
-        }
-    ]
-}
+# # Your original dataset + some new models to create multiple valid compositions
+# available_inputs = {
+#     "current_tank_level_Tank_C": [
+#         {
+#             "name": "Accuracy",
+#             "requirement": {"value": 94, "unit": "%"},
+#             "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}
+#         },
+#         {
+#             "name": "Latency",
+#             "requirement": {"value": 100, "unit": "milliseconds"},
+#             "criterion": {"operator": "LessThanOrEqual", "threshold": 100}
+#         }
+#     ],
+#     "pipe_diameter_pipe_a": [
+#         {
+#             "name": "Accuracy",
+#             "requirement": {"value": 96, "unit": "%"},
+#             "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
+#         },
+#         {
+#             "name": "Latency",
+#             "requirement": {"value": 50, "unit": "milliseconds"},
+#             "criterion": {"operator": "LessThanOrEqual", "threshold": 50}
+#         }
+#     ],
+#     "tank_dimension_Tank_C": [
+#         {
+#             "name": "Accuracy",
+#             "requirement": {"value": 98, "unit": "%"},
+#             "criterion": {"operator": "GreaterThanOrEqual", "threshold": 98}
+#         },
+#         {
+#             "name": "Latency",
+#             "requirement": {"value": 80, "unit": "milliseconds"},
+#             "criterion": {"operator": "LessThanOrEqual", "threshold": 80}
+#         }
+#     ],
+#     "pipe_diameter_b": [
+#         {
+#             "name": "Accuracy",
+#             "requirement": {"value": 95, "unit": "%"},
+#             "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}
+#         },
+#         {
+#             "name": "Latency",
+#             "requirement": {"value": 60, "unit": "milliseconds"},
+#             "criterion": {"operator": "LessThanOrEqual", "threshold": 60}
+#         }
+#     ],
+#     "valve_position_pipe_a": [
+#         {
+#             "name": "Accuracy",
+#             "requirement": {"value": 96, "unit": "%"},
+#             "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
+#         },
+#         {
+#             "name": "Latency",
+#             "requirement": {"value": 50, "unit": "milliseconds"},
+#             "criterion": {"operator": "LessThanOrEqual", "threshold": 50}
+#         }
+#     ],
+#     "valve_position_pipe_b": [
+#         {
+#             "name": "Accuracy",
+#             "requirement": {"value": 96, "unit": "%"},
+#             "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}
+#         },
+#         {
+#             "name": "Latency",
+#             "requirement": {"value": 60, "unit": "milliseconds"},
+#             "criterion": {"operator": "LessThanOrEqual", "threshold": 60}
+#         }
+#     ]
+# }
 
-# Your original models + 3 new models to create multiple valid compositions
-models = {
-    "m1": {
-        "name": "m1",
-        "inputs": ["flow_rate_pipe_a", "flow_rate_pipe_b", "current_tank_level_Tank_C", "tank_dimension_Tank_C"],
-        "output": "Predicted_time_to_fill_Tank_C",        
-        "inputsqualities": {
-            "flow_rate_pipe_a": [
-                {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
-                {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
-            ],
-            "flow_rate_pipe_b": [
-                {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
-                {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
-            ],
-            "current_tank_level_Tank_C": [
-                {"name": "Accuracy", "requirement": {"value": 94, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}},
-                {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
-            ],
-            "tank_dimension_Tank_C": [
-                {"name": "Accuracy", "requirement": {"value": 98, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 98}},
-                {"name": "Latency", "requirement": {"value": 80, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 80}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 95.75, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95.75}},
-            {"name": "Latency", "requirement": {"value": 400, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 400}}
-        ],
-        "output_name": "Predicted_time_to_fill_Tank_C"
-    },
-    "m2": {
-        "name": "m2",
-        "inputs": ["flow_rate_pipe_a", "flow_rate_pipe_b", "current_tank_level_Tank_C", "tank_dimension_Tank_C"],
-        "output": "Predicted_time_to_fill_Tank_C",
-        "inputsqualities": {
-            "flow_rate_pipe_a": [
-                {"name": "Accuracy", "requirement": {"value": 94, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}},
-                {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
-            ],
-            "flow_rate_pipe_b": [
-                {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
-                {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
-            ],
-            "current_tank_level_Tank_C": [
-                {"name": "Accuracy", "requirement": {"value": 93, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 93}},
-                {"name": "Latency", "requirement": {"value": 140, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 140}}
-            ],
-            "tank_dimension_Tank_C": [
-                {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
-                {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 92.75, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92.75}},
-            {"name": "Latency", "requirement": {"value": 500, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 500}}
-        ],
-        "output_name": "Predicted_time_to_fill_Tank_C"
-    },
-    "m3": {
-        "name": "m3",
-        "inputs": ["pipe_diameter_pipe_a", "valve_position_pipe_a"],
-        "output": "flow_rate_pipe_a",       
-        "inputsqualities": {
-            "pipe_diameter_pipe_a": [
-                {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
-                {"name": "Latency", "requirement": {"value": 50, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 50}}
-            ],
-            "valve_position_pipe_a": [
-                {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
-                {"name": "Latency", "requirement": {"value": 50, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 50}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
-            {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
-        ],
-        "output_name": "flow_rate_pipe_a"
-    }, 
-    "m4": {
-        "name": "m4",
-        "inputs": ["pipe_diameter_b", "valve_position_pipe_b"],
-        "output": "flow_rate_pipe_b",
-        "inputsqualities": {
-            "pipe_diameter_b": [
-                {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
-                {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 110}}
-            ],
-            "valve_position_pipe_b": [
-                {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
-                {"name": "Latency", "requirement": {"value": 50, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 50}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
-            {"name": "Latency", "requirement": {"value": 110, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 110}}
-        ],
-        "output_name": "flow_rate_pipe_b"
-    },
-    "m5": {
-        "name": "m5",
-        "inputs": ["pipe_diameter_b", "valve_position_pipe_b"],
-        "output": "flow_rate_pipe_b",
-        "inputsqualities": {
-            "pipe_diameter_b": [
-                {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
-                {"name": "Latency", "requirement": {"value": 59, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 60}}
-            ],
-            "valve_position_pipe_b": [
-                {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
-                {"name": "Latency", "requirement": {"value": 53, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 60}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
-            {"name": "Latency", "requirement": {"value": 117, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
-        ],
-        "output_name": "flow_rate_pipe_b"
-    },
+# # Your original models + 3 new models to create multiple valid compositions
+# models = {
+#     "m1": {
+#         "name": "m1",
+#         "inputs": ["flow_rate_pipe_a", "flow_rate_pipe_b", "current_tank_level_Tank_C", "tank_dimension_Tank_C"],
+#         "output": "Predicted_time_to_fill_Tank_C",        
+#         "inputsqualities": {
+#             "flow_rate_pipe_a": [
+#                 {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
+#                 {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
+#             ],
+#             "flow_rate_pipe_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
+#                 {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
+#             ],
+#             "current_tank_level_Tank_C": [
+#                 {"name": "Accuracy", "requirement": {"value": 94, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}},
+#                 {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
+#             ],
+#             "tank_dimension_Tank_C": [
+#                 {"name": "Accuracy", "requirement": {"value": 98, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 98}},
+#                 {"name": "Latency", "requirement": {"value": 80, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 80}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 95.75, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95.75}},
+#             {"name": "Latency", "requirement": {"value": 400, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 400}}
+#         ],
+#         "output_name": "Predicted_time_to_fill_Tank_C"
+#     },
+#     "m2": {
+#         "name": "m2",
+#         "inputs": ["flow_rate_pipe_a", "flow_rate_pipe_b", "current_tank_level_Tank_C", "tank_dimension_Tank_C"],
+#         "output": "Predicted_time_to_fill_Tank_C",
+#         "inputsqualities": {
+#             "flow_rate_pipe_a": [
+#                 {"name": "Accuracy", "requirement": {"value": 94, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}},
+#                 {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
+#             ],
+#             "flow_rate_pipe_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
+#                 {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
+#             ],
+#             "current_tank_level_Tank_C": [
+#                 {"name": "Accuracy", "requirement": {"value": 93, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 93}},
+#                 {"name": "Latency", "requirement": {"value": 140, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 140}}
+#             ],
+#             "tank_dimension_Tank_C": [
+#                 {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
+#                 {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 92.75, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92.75}},
+#             {"name": "Latency", "requirement": {"value": 500, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 500}}
+#         ],
+#         "output_name": "Predicted_time_to_fill_Tank_C"
+#     },
+#     "m3": {
+#         "name": "m3",
+#         "inputs": ["pipe_diameter_pipe_a", "valve_position_pipe_a"],
+#         "output": "flow_rate_pipe_a",       
+#         "inputsqualities": {
+#             "pipe_diameter_pipe_a": [
+#                 {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
+#                 {"name": "Latency", "requirement": {"value": 50, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 50}}
+#             ],
+#             "valve_position_pipe_a": [
+#                 {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
+#                 {"name": "Latency", "requirement": {"value": 50, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 50}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
+#             {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
+#         ],
+#         "output_name": "flow_rate_pipe_a"
+#     }, 
+#     "m4": {
+#         "name": "m4",
+#         "inputs": ["pipe_diameter_b", "valve_position_pipe_b"],
+#         "output": "flow_rate_pipe_b",
+#         "inputsqualities": {
+#             "pipe_diameter_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
+#                 {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 110}}
+#             ],
+#             "valve_position_pipe_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
+#                 {"name": "Latency", "requirement": {"value": 50, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 50}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
+#             {"name": "Latency", "requirement": {"value": 110, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 110}}
+#         ],
+#         "output_name": "flow_rate_pipe_b"
+#     },
+#     "m5": {
+#         "name": "m5",
+#         "inputs": ["pipe_diameter_b", "valve_position_pipe_b"],
+#         "output": "flow_rate_pipe_b",
+#         "inputsqualities": {
+#             "pipe_diameter_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
+#                 {"name": "Latency", "requirement": {"value": 59, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 60}}
+#             ],
+#             "valve_position_pipe_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 96, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 96}},
+#                 {"name": "Latency", "requirement": {"value": 53, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 60}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
+#             {"name": "Latency", "requirement": {"value": 117, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
+#         ],
+#         "output_name": "flow_rate_pipe_b"
+#     },
     
-    # NEW: Just 3 additional models to create multiple valid compositions
-    "m6": {
-        "name": "m6",
-        "inputs": ["current_tank_level_Tank_C", "tank_dimension_Tank_C"],
-        "output": "Predicted_time_to_fill_Tank_C",
-        "inputsqualities": {
-            "current_tank_level_Tank_C": [
-                {"name": "Accuracy", "requirement": {"value": 90, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 90}},
-                {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
-            ],
-            "tank_dimension_Tank_C": [
-                {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
-                {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 88, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 88}},
-            {"name": "Latency", "requirement": {"value": 250, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 250}}
-        ],
-        "output_name": "Predicted_time_to_fill_Tank_C"
-    },
-    "m7": {
-        "name": "m7",
-        "inputs": ["pipe_diameter_pipe_a", "pipe_diameter_b"],
-        "output": "flow_rate_pipe_a",
-        "inputsqualities": {
-            "pipe_diameter_pipe_a": [
-                {"name": "Accuracy", "requirement": {"value": 94, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}},
-                {"name": "Latency", "requirement": {"value": 60, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 60}}
-            ],
-            "pipe_diameter_b": [
-                {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
-                {"name": "Latency", "requirement": {"value": 70, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 70}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 93, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 93}},
-            {"name": "Latency", "requirement": {"value": 90, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 90}}
-        ],
-        "output_name": "flow_rate_pipe_a"
-    },
-    "m8": {
-        "name": "m8",
-        "inputs": ["pipe_diameter_b", "current_tank_level_Tank_C"],
-        "output": "flow_rate_pipe_b",
-        "inputsqualities": {
-            "pipe_diameter_b": [
-                {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
-                {"name": "Latency", "requirement": {"value": 80, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 80}}
-            ],
-            "current_tank_level_Tank_C": [
-                {"name": "Accuracy", "requirement": {"value": 90, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 90}},
-                {"name": "Latency", "requirement": {"value": 110, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 110}}
-            ]
-        },
-        "outputqualities": [
-            {"name": "Accuracy", "requirement": {"value": 91, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 91}},
-            {"name": "Latency", "requirement": {"value": 105, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 105}}
-        ],
-        "output_name": "flow_rate_pipe_b"
-    }
-}
+#     # NEW: Just 3 additional models to create multiple valid compositions
+#     "m6": {
+#         "name": "m6",
+#         "inputs": ["current_tank_level_Tank_C", "tank_dimension_Tank_C"],
+#         "output": "Predicted_time_to_fill_Tank_C",
+#         "inputsqualities": {
+#             "current_tank_level_Tank_C": [
+#                 {"name": "Accuracy", "requirement": {"value": 90, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 90}},
+#                 {"name": "Latency", "requirement": {"value": 120, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 120}}
+#             ],
+#             "tank_dimension_Tank_C": [
+#                 {"name": "Accuracy", "requirement": {"value": 95, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 95}},
+#                 {"name": "Latency", "requirement": {"value": 100, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 100}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 88, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 88}},
+#             {"name": "Latency", "requirement": {"value": 250, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 250}}
+#         ],
+#         "output_name": "Predicted_time_to_fill_Tank_C"
+#     },
+#     "m7": {
+#         "name": "m7",
+#         "inputs": ["pipe_diameter_pipe_a", "pipe_diameter_b"],
+#         "output": "flow_rate_pipe_a",
+#         "inputsqualities": {
+#             "pipe_diameter_pipe_a": [
+#                 {"name": "Accuracy", "requirement": {"value": 94, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 94}},
+#                 {"name": "Latency", "requirement": {"value": 60, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 60}}
+#             ],
+#             "pipe_diameter_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
+#                 {"name": "Latency", "requirement": {"value": 70, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 70}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 93, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 93}},
+#             {"name": "Latency", "requirement": {"value": 90, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 90}}
+#         ],
+#         "output_name": "flow_rate_pipe_a"
+#     },
+#     "m8": {
+#         "name": "m8",
+#         "inputs": ["pipe_diameter_b", "current_tank_level_Tank_C"],
+#         "output": "flow_rate_pipe_b",
+#         "inputsqualities": {
+#             "pipe_diameter_b": [
+#                 {"name": "Accuracy", "requirement": {"value": 92, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 92}},
+#                 {"name": "Latency", "requirement": {"value": 80, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 80}}
+#             ],
+#             "current_tank_level_Tank_C": [
+#                 {"name": "Accuracy", "requirement": {"value": 90, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 90}},
+#                 {"name": "Latency", "requirement": {"value": 110, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 110}}
+#             ]
+#         },
+#         "outputqualities": [
+#             {"name": "Accuracy", "requirement": {"value": 91, "unit": "%"}, "criterion": {"operator": "GreaterThanOrEqual", "threshold": 91}},
+#             {"name": "Latency", "requirement": {"value": 105, "unit": "milliseconds"}, "criterion": {"operator": "LessThanOrEqual", "threshold": 105}}
+#         ],
+#         "output_name": "flow_rate_pipe_b"
+#     }
+# }
 
-compositionRequirements = [
-    {
-        "name": "Accuracy",
-        "requirement": {"value": 85, "unit": "%"},
-        "criterion": {"operator": "GreaterThanOrEqual", "threshold": 85}
-    },
-    {
-        "name": "Latency",
-        "requirement": {"value": 600, "unit": "milliseconds"},
-        "criterion": {"operator": "LessThanOrEqual", "threshold": 600}
-    },
-    {
-        "output": {"name": "Predicted_time_to_fill_Tank_C"}
-    }
-]
+# compositionRequirements = [
+#     {
+#         "name": "Accuracy",
+#         "requirement": {"value": 85, "unit": "%"},
+#         "criterion": {"operator": "GreaterThanOrEqual", "threshold": 85}
+#     },
+#     {
+#         "name": "Latency",
+#         "requirement": {"value": 600, "unit": "milliseconds"},
+#         "criterion": {"operator": "LessThanOrEqual", "threshold": 600}
+#     },
+#     {
+#         "output": {"name": "Predicted_time_to_fill_Tank_C"}
+#     }
+# ]
 
-composite_model = []
+# composite_model = []
 
 # YOUR ORIGINAL FUNCTIONS (unchanged)
 def check_quality_requirement(provided_quality, required_quality):
